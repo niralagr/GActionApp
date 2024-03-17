@@ -24,3 +24,7 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew build
+    - name: Install dependencies
+      run: nuget restore App2/App2.sln
+    - name: Build
+      run: msbuild App2/App2/App2.Android/App2.Android.csproj /t:PackageForAndroid /p:Configuration=Debug
