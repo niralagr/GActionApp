@@ -10,13 +10,15 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Set default Xamarin SDK versions
-      run: |
-        $VM_ASSETS/select-xamarin-sdk-v2.sh --android=10.2
-
     - name: Setup .NET Core SDK 2.x
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: '2.x'
+
+    - name: Install Xamarin.Android
+      run: |
+        sudo $AGENT_HOMEDIRECTORY/scripts/select-xamarin-sdk.sh 11_99_999  # Change this to the desired Xamarin.Android version
+        sudo $AGENT_HOMEDIRECTORY/scripts/select-xamarin.sh 11_99_999  # Change this to the desired Xamarin.Android version
 
     - name: Install dependencies
       run: nuget restore App2/App2.sln
