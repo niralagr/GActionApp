@@ -22,6 +22,7 @@ jobs:
         dotnet tool restore
 
     - name: Build Android project
+      working-directory: App2/App2/App2.Android/App2.Android.csproj
       run: |
         msbuild /t:Restore
         msbuild /t:Build /p:Configuration=Release
