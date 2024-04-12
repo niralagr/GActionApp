@@ -20,7 +20,7 @@ jobs:
       run: |
         pwd   
     - name: Install dependencies
-      run: nuget restore /App2/App2.sln
+      run: nuget restore App2/App2.sln
 
     - name: Build Android project
       working-directory: /App2/App2.Android/App2.Android.csproj
