@@ -1,0 +1,22 @@
+name: Check Xamarin.Android SDK
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  check_xamarin_android_sdk:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Check for Xamarin.Android SDK
+      run: |
+        if [ -d "/usr/lib/mono/xbuild/Xamarin/Android" ]; then
+          echo "Xamarin.Android SDK is installed."
+        else
+          echo "Xamarin.Android SDK is not installed."
+        fi
