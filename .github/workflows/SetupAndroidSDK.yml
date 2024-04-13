@@ -21,8 +21,9 @@ jobs:
 
     - name: Install Xamarin.Android SDK
       run: |
-        wget https://dl.xamarin.com/MonoforAndroid/AndroidSDK-$(date +%Y%m%d)-linux-x86_64.zip
-        unzip -q AndroidSDK-$(date +%Y%m%d)-linux-x86_64.zip -d $HOME/android-sdk
+        wget https://dl.xamarin.com/MonoforAndroid/AndroidSDK-$(date +%Y%m%d)-macosx-x86_64.dmg
+        hdiutil attach AndroidSDK-$(date +%Y%m%d)-macosx-x86_64.dmg
+        cp -R /Volumes/VisualStudio/VisualStudio.app/Contents/Resources/lib/monodroid/Xamarin.Android.Sdk/ ~/android-sdk
 
     - name: Set up environment variables
       run: |
