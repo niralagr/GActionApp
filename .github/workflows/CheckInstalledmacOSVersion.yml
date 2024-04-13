@@ -1,0 +1,15 @@
+name: Check Installed macOS Version
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  check_macos_version:
+    runs-on: macos-latest
+
+    steps:
+    - name: Check macOS Version
+      run: |
+        sw_vers -productVersion
