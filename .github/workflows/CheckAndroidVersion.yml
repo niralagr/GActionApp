@@ -7,7 +7,7 @@ on:
 
 jobs:
   check_xamarin_android_version:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
