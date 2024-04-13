@@ -1,0 +1,24 @@
+name: Check Xamarin Android Version
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  check_xamarin_android_version:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install .NET SDK
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '6.0.x'
+
+    - name: Get Xamarin.Android version
+      run: |
+        dotnet restore
+        dotnet list package | grep Xamarin.Android.Sdk
