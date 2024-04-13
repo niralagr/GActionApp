@@ -15,4 +15,4 @@ jobs:
 
     - name: Read Xamarin.Android Version
       run: |
-        grep -oP '(?<=Android\\)([0-9]+\.[0-9]+)' /usr/lib/mono/xbuild/Xamarin/Android/Xamarin.Android.CSharp.targets
+        grep -oE 'Android\\[0-9]+\.[0-9]+' /usr/lib/mono/xbuild/Xamarin/Android/Xamarin.Android.CSharp.targets
