@@ -1,4 +1,4 @@
-name: Check Xamarin Android Version
+name: Check Xamarin.Android Version
 
 on:
   push:
@@ -13,12 +13,6 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Install .NET SDK
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: '6.0.x'
-
-    - name: Get Xamarin.Android version
+    - name: Read Xamarin.Android Version
       run: |
-        dotnet restore
-        dotnet list package | grep Xamarin.Android.Sdk
+        grep -oP '(?<=Android\\)([0-9]+\.[0-9]+)' /usr/lib/mono/xbuild/Xamarin/Android/Xamarin.Android.CSharp.targets
