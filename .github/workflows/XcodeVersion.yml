@@ -1,0 +1,16 @@
+name: Check Installed Xcode Version
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  check_xcode_version:
+    runs-on: macos-latest
+
+    steps:
+    - name: Check Xcode Version
+      run: |
+        xcodebuild -version
+        xcode-select -p
