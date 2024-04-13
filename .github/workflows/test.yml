@@ -1,0 +1,17 @@
+name: Check Mono Version
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  check_mono_version:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Check Mono Version
+      run: mono --version
