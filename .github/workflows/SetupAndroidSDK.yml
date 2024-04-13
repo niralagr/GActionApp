@@ -1,0 +1,32 @@
+name: Build Xamarin.Android App
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up JDK
+      uses: actions/setup-java@v2
+      with:
+        distribution: 'adopt'
+        java-version: '11'
+
+    - name: Set up Android SDK
+      uses: actions/setup-android@v2
+      with:
+        sdk-version: '30.0.3'
+        ndk-version: '21.4.7075529'
+        accept-licenses: true
+
+    - name: Build Xamarin.Android App
+      run: |
+        msbuild /t:Restore
+        msbuild /t:Build /p:Configuration=Release
