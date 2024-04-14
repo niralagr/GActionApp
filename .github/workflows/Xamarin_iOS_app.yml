@@ -10,6 +10,14 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
+    - name: Use Xcode 15
+      run: sudo xcode-select --switch Applications/Xcode_15.1.app
+
+    - name: Install CocoaPods
+      run: |
+        gem install cocoapods
+        pod install
+
     - name: Setup .NET Core SDK 5.0.x
       uses: actions/setup-dotnet@v3
       with:
