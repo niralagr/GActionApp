@@ -11,11 +11,11 @@ jobs:
     - uses: actions/checkout@v4
     - name: Set default Xamarin SDK versions
       run: |
-        $VM_ASSETS/select-xamarin-sdk-v2.sh --mono=6.12 --ios=17.4
+        $VM_ASSETS/select-xamarin-sdk-v2.sh --mono=6.12 --ios=17.0
 
-    - name: Set default Xcode 15.3
+    - name: Set default Xcode 15
       run: |
-        XCODE_ROOT=/Applications/Xcode_15.3.app
+        XCODE_ROOT=/Applications/Xcode_15.0.1.app
         echo "MD_APPLE_SDK_ROOT=$XCODE_ROOT" >> $GITHUB_ENV
         sudo xcode-select -s $XCODE_ROOT
    
