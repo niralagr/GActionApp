@@ -5,19 +5,20 @@ on: [push]
 jobs:
   build:
 
-    runs-on: macos-latest
+    runs-on: macos-13
 
     steps:
     - uses: actions/checkout@v4
-
-    - name: Use Xcode 15
-      run: sudo xcode-select --switch /Applications/Xcode_15.1.app
-
-    - name: Install CocoaPods
+    - name: Set default Xamarin SDK versions
       run: |
-        gem install cocoapods
-        pod install
+        $VM_ASSETS/select-xamarin-sdk-v2.sh --mono=6.12 --ios=17
 
+    - name: Set default Xcode 15
+      run: |
+        XCODE_ROOT=/Applications/Xcode_15.0.1.app
+        echo "MD_APPLE_SDK_ROOT=$XCODE_ROOT" >> $GITHUB_ENV
+        sudo xcode-select -s $XCODE_ROOT
+   
     - name: Setup .NET Core SDK 5.0.x
       uses: actions/setup-dotnet@v3
       with:
