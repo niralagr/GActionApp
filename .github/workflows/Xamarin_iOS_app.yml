@@ -9,6 +9,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+
+    - name: Install Xamarin.iOS
+      run: |
+        nuget install Xamarin.iOS -Version 17.0 -OutputDirectory packages
+        ls packages
+        
     - name: Set default Xamarin SDK versions
       run: |
         $VM_ASSETS/select-xamarin-sdk-v2.sh --mono=6.12 --ios=17.0
