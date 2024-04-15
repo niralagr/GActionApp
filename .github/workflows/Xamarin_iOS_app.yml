@@ -5,13 +5,13 @@ on: [push]
 jobs:
   build:
 
-    runs-on: macos-13
+    runs-on: macos-14
 
     steps:
     - uses: actions/checkout@v4
     - name: Set default Xamarin SDK versions
       run: |
-        $VM_ASSETS/select-xamarin-sdk-v2.sh --mono=6.12 --ios=17.2
+        $VM_ASSETS/select-xamarin-sdk.sh --mono=6.12 --ios=17.2
 
     - name: Set default Xcode 15
       run: |
