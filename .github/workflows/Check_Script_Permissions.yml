@@ -7,11 +7,11 @@ on:
 
 jobs:
   check_permissions:
-    runs-on: macos-14
+    runs-on: macos-latest
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
 
     - name: List file permissions
-      run: ls -l select-xamarin-sdk.sh
+      run: ls -l $AGENT_HOMEDIRECTORY/scripts/select-xamarin-sdk.sh
