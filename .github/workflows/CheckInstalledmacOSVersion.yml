@@ -10,6 +10,6 @@ jobs:
     runs-on: macos-latest
 
     steps:
-    - name: Check macOS Version
+    - name: Check macOS Version in the runner 
       run: |
         sw_vers -productVersion
