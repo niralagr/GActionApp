@@ -1,0 +1,17 @@
+name: Get Script Path
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  get_script_path:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Get script path
+      run: echo "Script path: $GITHUB_WORKSPACE/select-xamarin-sdk-v2.sh"
