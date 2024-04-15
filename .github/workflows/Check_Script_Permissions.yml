@@ -14,4 +14,4 @@ jobs:
       uses: actions/checkout@v4
 
     - name: List file permissions
-      run: ls -l select-xamarin-sdk-v2.sh
+      run: ls -l $VM_ASSETS/select-xamarin-sdk-v2.sh
