@@ -5,17 +5,17 @@ on: [push]
 jobs:
   build:
 
-    runs-on: macos-14
+    runs-on: macos-13
 
     steps:
     - uses: actions/checkout@v4
     - name: Set default Xamarin SDK versions
       run: |
-        ./scripts/select-xamarin-sdk-v2.sh --mono=6.12 --ios=17.2
+        $VM_ASSETS/select-xamarin-sdk-v2.sh --mono=6.12 --ios=17
 
     - name: Set default Xcode 15
       run: |
-        XCODE_ROOT=/Applications/Xcode_15.2.app
+        XCODE_ROOT=/Applications/Xcode_15.01.app
         echo "MD_APPLE_SDK_ROOT=$XCODE_ROOT" >> $GITHUB_ENV
         sudo xcode-select -s $XCODE_ROOT
    
