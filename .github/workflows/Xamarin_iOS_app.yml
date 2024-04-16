@@ -10,12 +10,6 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     
-    - name: Set default Xcode 15
-      run: |
-        XCODE_ROOT=/Applications/Xcode_15.01.app
-        echo "MD_APPLE_SDK_ROOT=$XCODE_ROOT" >> $GITHUB_ENV
-        sudo xcode-select -s $XCODE_ROOT
-   
     - name: Setup .NET Core SDK 6.0.x
       uses: actions/setup-dotnet@v3
       with:
